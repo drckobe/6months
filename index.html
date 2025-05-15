@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Monthsary Envelope</title>
+  <style>
+    body {
+      background: #ffe6f0;
+      font-family: 'Georgia', cursive;
+      text-align: center;
+      padding: 50px;
+    }
+
+    button {
+      background-color: #ff4d94;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(255, 77, 148, 0.4);
+      transition: background-color 0.3s ease;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #ff66b3;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      margin: 20px auto;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .flap {
+      width: 300px;
+      height: 100px;
+      background: #ff99cc;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10px 10px 0 0;
+      transform-origin: bottom center;
+      transition: transform 1s ease;
+      box-shadow: inset 0 -3px 5px rgba(255, 255, 255, 0.3);
+      
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(-180deg);
+    }
+
+    .letter {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 300px;
+      height: 900px;
+      background: white;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      opacity: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: opacity 1s ease 1s;
+    }
+
+    .envelope.open .letter {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="openBtn">Open Me Please 💌</button>
+ 
+  
+
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="letter">
+      <h2>My Dearest Bea,</h2>
+      <p>
+        Happy 6 months, my love! :) Every single day feels brighter because of you.
+        Thank you for continuing to choose me, even when I’m not the easiest to love or when I seem distant.
+        Your time, patience, care, and love mean more to me than I could ever tell you.
+      </p>
+      <p>
+        I treasure every moment we share and each time that you remind me that you love me.
+        Having you in my life is the most beautiful blessing. I'm so lucky to be yours, and to know that you're mine.
+      </p>
+      <p>
+        If you’ve made it this far, you can press the button that says “press me please” :)
+      </p>
+      
+      
+      <button id="visitBtn" style="margin-top: 20px;">Press Me Please 💌</button>
+      <img src="dancing-cat-jump-cat.gif" style="width:100%; border-radius: 10px; margin-top: 10px;">
+    </div>
+  </div>
+  
+
+  
+  
+  <script>
+    const button = document.getElementById('openBtn');
+    const envelope = document.getElementById('envelope');
+
+    button.addEventListener('click', () => {
+      envelope.classList.toggle('open');
+      if (envelope.classList.contains('open')) {
+        button.textContent = "Close ✉️";
+      } else {
+        button.textContent = "Open Me Please 💌";
+      }
+    });
+
+    const visitBtn = document.getElementById('visitBtn');
+    visitBtn.addEventListener('click', () => {
+      window.open('file:///C:/Users/calll/OneDrive/Desktop/INDEX/Untitled-1.html');
+    });
+  </script>
+ 
+
+</body>
+</html>
