@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For my baby</title>
   <style>
-  body {
+    body {
       background: #ffe6f0;
       font-family: 'Georgia', cursive;
       text-align: center;
@@ -37,12 +37,23 @@
     }
 
     .fade-in {
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
       width: 100%;
+      max-width: 100%;
+      height: auto;
       border-radius: 10px;
       margin-top: 10px;
+      display: block;
     }
 
-     h1 {
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    h1 {
       color: #ff3399;
       font-size: 3em;
     }
@@ -64,50 +75,51 @@
       }
     }
 
-
-    .fade-in {
+    .floating-text {
+      display: inline-block;
       opacity: 0;
-      animation: fadeIn 2s ease-in forwards;
-      width: 300px;
-      border-radius: 20px;
-      margin-top: 20px;
+      animation: fadeIn 2s ease-in forwards, float 3s ease-in-out infinite;
+      animation-delay: 0s, 2s;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1.2em;
+      }
+
+      .openBtn {
+        font-size: 20px;
+        padding: 8px 16px;
+      }
+
+      .envelope {
+        padding: 15px;
+        width: 100%;
       }
     }
-    
-    .floating-text {
-  display: inline-block;
-  opacity: 0;
-  animation: fadeIn 2s ease-in forwards, float 3s ease-in-out infinite;
-  animation-delay: 0s, 2s; 
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
-}
-
   </style>
 </head>
 <body>
-
-
-  
   <div class="heart">❤️</div>
-  <h1 class="floating-text">Hello, My Love!</h1>
-<div><p class="floating-text">Happy 6th monthsary! Here are just a few of my favorite memories with you 
-  <div><p class="floating-text"> (though every one with you feels like my favorite :) )</p></div>
+
+  <p><h1 class="floating-text">Hello, My Love!</h1></p>
+  <p class="floating-text">Happy 6th monthsary! Here are just a few of my favorite memories with you</p>
+  <br><p class="floating-text">(though every one with you feels like my favorite :) )</p>
+
 
 
   <!-- Envelope 1 -->
@@ -209,7 +221,6 @@
    <div class="envelope-container">
     <button class="openBtn">💌</button>
     <div class="envelope">
-       <img src="us7.webp" class="fade-in">
         <img src="us10.webp" class="fade-in">
   <p><i>Our first date! :)</i></p>
   <p> I finally got to see you, and even though our time together was short, every second felt so special.</p>
@@ -242,3 +253,4 @@
   </script>
 </body>
 </html>
+
